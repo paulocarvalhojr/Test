@@ -14,12 +14,13 @@ namespace PC.Example.Domain
         
         public bool Validate(string password)
         {
-            return Regex.IsMatch(password, PatternNumber)
-                   && Regex.IsMatch(password, PatternUpperChar)
-                   && Regex.IsMatch(password, PatternLowerChar)
-                   && Regex.IsMatch(password, PatternMinimumNineChars)
-                   && Regex.IsMatch(password, PatternSpecialChar)
-                   && password.Distinct().Count() == password.Length;
+            return password != null
+                && Regex.IsMatch(password, PatternNumber)
+                && Regex.IsMatch(password, PatternUpperChar)
+                && Regex.IsMatch(password, PatternLowerChar)
+                && Regex.IsMatch(password, PatternMinimumNineChars)
+                && Regex.IsMatch(password, PatternSpecialChar)
+                && password.Distinct().Count() == password.Length;
         }
     }
 }
